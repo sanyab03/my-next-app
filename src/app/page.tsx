@@ -25,10 +25,12 @@ export default function CandidateForm() {
   };
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setFormData((prevData) => ({ ...prevData, resume: e.target.files[0] }));
+    const file = e.target.files?.[0]; 
+    if (file) {
+      setFormData((prevData) => ({ ...prevData, resume: file }));
     }
   };
+  
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
